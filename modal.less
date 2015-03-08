@@ -1,0 +1,107 @@
+@modal-backdrop-color: rgba(0, 0, 0, 0.5);
+@modal-background-color: #fff;
+@modal-max-width: 350px;
+@modal-border-radius: 3px;
+@modal-close-color: #8f9cb5;
+@modal-margin-top: 6em;
+
+.modal {
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  visibility: hidden;
+  background-color: @modal-backdrop-color;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  z-index: 1000;
+
+  &_is-visible {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+    -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+    transition: opacity 0.3s 0s, visibility 0s 0s;
+  }
+
+  &_is-visible>&__container{
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  &__container {
+    z-index: 1020;
+    position: relative;
+    width: 90%;
+    max-width: @modal-max-width;
+    margin: auto;
+    background: @modal-background-color;
+    padding: 40px 20px 20px 20px;
+    border-radius: @modal-border-radius;
+    margin-top: @modal-margin-top;
+
+    -webkit-transform: translateY(-40px);
+    -moz-transform: translateY(-40px);
+    -ms-transform: translateY(-40px);
+    -o-transform: translateY(-40px);
+    transform: translateY(-40px);
+
+    -webkit-backface-visibility: hidden;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s; 
+  }
+
+  &__close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 30px;
+    background: #fff;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      width: 14px;
+      height: 3px;
+      background-color: @modal-close-color;
+    }
+
+    &::before {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      left: 8px;
+    }
+    &::after {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      right: 8px;
+    }
+  }
+}
+
+.modal-open{
+  overflow: hidden;
+}

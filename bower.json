@@ -1,0 +1,11 @@
+{
+  "name": "modal",
+  "version": "0.0.1",
+  "authors": [
+    "Aleksandr <aleksandrsazhin5@yandex.ru>"
+  ],
+  "description": "",
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  }
+}
